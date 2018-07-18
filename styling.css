@@ -1,9 +1,23 @@
 :root {
 	--carousel-height: 100vh;
+	--carousel-width: 100%;
 	--carousel-nav-color: black;
 	--carousel-nav-margin: 1em;
 
 	--slide-padding: 2em;
+
+	--card-padding: 3ch;
+	--card-border-radius: 1em;
+	--card-title-color: white;
+	--card-p-color: white;
+	--card-gradient: linear-gradient(transparent 20%, black 40%);
+	--card-p-top: 60%;
+
+	--image-1: url("images/AU.jpg");
+	--image-2: url("images/AG.jpeg");
+	--image-3: url("images/Ganesh.jpg");
+	--image-4: url("images/GN.jpg");
+	--image-5: url("images/KS.jpg");
 
 	--dots-color: black;
 
@@ -15,11 +29,6 @@
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
-}
-
-@import url('https://fonts.googleapis.com/css?family=Gaegu');
-body{
-	margin: 0;
 }
 
 .fullscreen {
@@ -50,7 +59,7 @@ body{
 	font-weight: 100;
 }
 
-@media screen and (min-height: 974px)
+@media screen and (min-width: 974px)
 {
 	#top h1{
 		left: 10%;
@@ -66,13 +75,13 @@ body{
 	font-weight: 400;
 }
 
-@media screen and (min-height:839px){
+@media screen and (min-width:839px){
 	#top h1{
 		left:0%;
 	}
 }
 
-@media screen and (min-height: 643px){
+@media screen and (min-width: 643px){
 	#top h1{
 		left:0%;
 		top:30%;
@@ -81,26 +90,11 @@ body{
 	}
 }
 
-.slide h1 {
-	position: relative;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	color: red;
-	font-size: 48px;
-	line-height: 54px;
-	text-align: center;
-	font-family: 'TrebuchetMS', trebuchet, sans-serif;
-}
-
-.page {
-	height: 100vh;
-	width: 100%;
-	background-color: teal;
-}
+/* Carousel */
 
 .carousel {
 	height: var(--carousel-height);
+	background-color: 
 	width: 100%;
 	position: relative;
 }
@@ -119,6 +113,17 @@ body{
 	position: relative;
 }
 
+.carousel-view ul.animate {
+	transition: 0.3s all;
+}
+
+.carousel-view ul li {
+	float: left;
+	width: 100%;
+	height: inherit;
+}
+
+
 .slide {
 	width: 100%;
 	height: var(--carousel-height);
@@ -128,16 +133,62 @@ body{
 	padding: var(--slide-padding);
 }
 
-.carousel-view ul.animate {
-	transition: 0.3s all;
+.slide h1 {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: red;
+	font-size: 48px;
+	line-height: 54px;
+	text-align: center;
+	font-family: 'TrebuchetMS', trebuchet, sans-serif;
 }
 
-.carousel .carousel-view ul li {
-	float: left;
+.card {
 	width: 100%;
-	height: inherit;
+	height: 100%;
+	position: relative;
+	border-radius: var(--card-border-radius);
+	
+	padding: var(--card-padding);
+	color: var(--card-p-color);
 }
 
+.card p {
+	font-size: 4vw;
+	margin-top: var(--card-p-top);
+}
+
+#card-1 {
+	background: var(--card-gradient), var(--image-1);
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+#card-2 {
+	background: var(--card-gradient), var(--image-2);
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+#card-3 {
+	background: var(--card-gradient), var(--image-3);
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+#card-4 {
+	background: var(--card-gradient), var(--image-4);
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+#card-5 {
+	background: var(--card-gradient), var(--image-5);
+	background-size: contain;
+	background-repeat: no-repeat;
+}
 
 .carousel-dots ul {
 	bottom: 4px;
@@ -160,11 +211,11 @@ body{
 	border: 5px solid var(--dots-color);
 }
 
-.carousel-pagination ul li:first-child {
+.carousel-dots ul li:first-child {
 	margin-left: 0;
 }
 
-.carousel-pagination ul li:last-child {
+.carousel-dots ul li:last-child {
 	margin-right: 0;
 }
 
@@ -187,10 +238,4 @@ body{
 .carousel-next {
 	right: var(--carousel-nav-margin);
 	text-align: right;
-}
-
-.card {
-	position: relative;
-	background-color: blue;
-	width: 100%;
 }
