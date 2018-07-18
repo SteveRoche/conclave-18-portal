@@ -1,15 +1,17 @@
 :root {
 	--carousel-height: 100vh;
 	--carousel-width: 100%;
-	--carousel-nav-color: black;
-	--carousel-nav-margin: 1em;
+	--carousel-bg-color: lightcoral;
+	--carousel-nav-color: white;
+	--carousel-nav-margin: 2rem;
 
-	--slide-padding: 2em;
+	--slide-padding: 2rem;
 
 	--card-padding: 3ch;
 	--card-border-radius: 1em;
 	--card-title-color: white;
 	--card-p-color: white;
+	--card-p-font-size: 3vw;
 	--card-gradient: linear-gradient(transparent 20%, black 40%);
 	--card-p-top: 60%;
 
@@ -59,32 +61,35 @@
 	font-weight: 100;
 }
 
-@media screen and (min-width: 974px)
-{
-	#top h1{
+@media screen and (min-width: 974px) {
+	:root {
+		--card-p-font-size: 1.5em;
+	}
+
+	#top h1 {
 		left: 10%;
 	}
-	#top h2{
+	#top h2 {
 		font-size: 3em;
 	}
 }
 
-#bottom h1{
+#bottom h1 {
 	font-size: 6em;
 	font-family: 'Gaegu',cursive;
 	font-weight: 400;
 }
 
-@media screen and (min-width:839px){
-	#top h1{
+@media screen and (min-width:839px) {
+	#top h1 {
 		left:0%;
 	}
 }
 
-@media screen and (min-width: 643px){
-	#top h1{
-		left:0%;
-		top:30%;
+@media screen and (min-width: 643px) {
+	#top h1 {
+		left: 0%;
+		top: 30%;
 		margin-left: -10%;
 		font-size: 7em;
 	}
@@ -94,7 +99,7 @@
 
 .carousel {
 	height: var(--carousel-height);
-	background-color: 
+	background-color: var(--carousel-bg-color);
 	width: 100%;
 	position: relative;
 }
@@ -127,7 +132,7 @@
 .slide {
 	width: 100%;
 	height: var(--carousel-height);
-	margin: 0 auto;
+	margin: auto auto;
 	max-width: 960px;
 	position: relative;
 	padding: var(--slide-padding);
@@ -156,7 +161,7 @@
 }
 
 .card p {
-	font-size: 4vw;
+	font-size: var(--card-p-font-size);
 	margin-top: var(--card-p-top);
 }
 
@@ -223,19 +228,20 @@
 .carousel-next {
 	color: var(--carousel-nav-color);
 	top: 50%;
-	width: 40px;
-	height: 40px;
+	width: 50px;
+	height: 50px;
 	cursor: pointer;
-	border-radius: 50%;
 	position: absolute;
 	transform: translateY(-50%);
 }
 
 .carousel-previous {
+	font-size: 2em;
 	left: var(--carousel-nav-margin);
 }
 
 .carousel-next {
+	font-size: 2em;
 	right: var(--carousel-nav-margin);
 	text-align: right;
 }
