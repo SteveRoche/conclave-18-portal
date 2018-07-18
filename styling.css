@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Gaegu');
+	body{
+		margin: 0;
+
+	}
+	#top{
+		width:100%;
+		height:100vh;
+		background-color:#DC143C;
+
+	}
+	#bottom{
+		width:100%;
+		height:100vh;
+		background-color:#F5FFFA;
+	}
+	#top h1{
+		font-size: 7em;
+		font-family: 'Gaegu', cursive;
+		font-weight: 500;
+		position:center;
+		top:35%;
+		color:white;
+		margin:0 auto;
+		margin-left:-10%;
+	}
+	#top h2{
+		top:50%;
+		margin:auto;
+		position: relative;
+		font-family: 'Gaegu', cursive;
+		font-weight: 100;
+	}
+	@media screen and (max-height: 974px)
+	{
+		#top h1{
+			left:10%;
+		}
+		#top h2{
+			font-size: 3em;
+		}
+	} 
+	#bottom h1{
+		font-size:6em;
+		font-family:'Gaegu',cursive;
+		font-weight: 400;
+	}
+	@media screen and (max-height:839px){
+		#top h1{
+			left:0%;
+		}
+	}
+	@media screen and (max-height: 643px){
+		#top h1{
+			left:0%;
+			top:30%;
+			margin-left: -10%;
+			font-size: 7em;
+		}
+	}
