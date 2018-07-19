@@ -13,7 +13,7 @@
 	--card-p-color: white;
 	--card-p-font-size: 3vw;
 	--card-gradient: linear-gradient(transparent 20%, black 40%);
-	--card-p-top: 60%;
+	--card-p-top: 50vh;
 
 	--image-1: url("images/AU.jpg");
 	--image-2: url("images/AG.jpeg");
@@ -61,11 +61,7 @@
 	font-weight: 100;
 }
 
-@media screen and (min-width: 974px) {
-	:root {
-		--card-p-font-size: 1.5em;
-	}
-
+@media screen and (min-width: 974px) {	
 	#top h1 {
 		left: 10%;
 	}
@@ -87,6 +83,10 @@
 }
 
 @media screen and (min-width: 643px) {
+	:root {
+		--card-p-font-size: 1em;
+	}
+
 	#top h1 {
 		left: 0%;
 		top: 30%;
