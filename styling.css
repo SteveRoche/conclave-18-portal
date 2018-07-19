@@ -167,31 +167,35 @@
 
 #card-1 {
 	background: var(--card-gradient), var(--image-1);
-	background-size: contain;
+	background-size: cover;
+	background-position: 60% bottom;
 	background-repeat: no-repeat;
 }
 
 #card-2 {
 	background: var(--card-gradient), var(--image-2);
-	background-size: contain;
+	background-size: cover;
+	background-position: 50% center;
 	background-repeat: no-repeat;
 }
 
 #card-3 {
 	background: var(--card-gradient), var(--image-3);
-	background-size: contain;
+	background-size: cover;
+	background-position-x: 40%;
 	background-repeat: no-repeat;
 }
 
 #card-4 {
 	background: var(--card-gradient), var(--image-4);
-	background-size: contain;
+	background-size: cover;
+	background-position: 70% bottom;
 	background-repeat: no-repeat;
 }
 
 #card-5 {
 	background: var(--card-gradient), var(--image-5);
-	background-size: contain;
+	background-size: cover;
 	background-repeat: no-repeat;
 }
 
