@@ -10,8 +10,8 @@ var carousel = document.querySelector('.carousel'),
 
 function sizeCarouselElements() {
 	var windowWidth = window.innerWidth;
-	carouselList.style.width = windowWidth * carouselLength + 'px';
-	for (var i = 0; i < carouselLength; i++) carouselItems[i].style.width = windowWidth + 'px';
+	carouselList.style.width = `${windowWidth * carouselLength}px`;
+	for (var i = 0; i < carouselLength; i++) carouselItems[i].style.width = `${windowWidth}px`;
 }
 
 function generateCarouselDots() {
@@ -45,12 +45,12 @@ function handleCarouselNextClicked() {
 
 function setViewToCurrentPage() {
 	carouselList.className = '';
-	carouselList.style.left = -(window.innerWidth * currentPage) + 'px';
+	carouselList.style.left = `${-window.innerWidth*currentPage}px`;
 }
 
 function animateViewToCurrentPage() {
 	carouselList.className = 'animate';
-	carouselList.style.left = -(window.innerWidth * currentPage) + 'px';
+	carouselList.style.left = `${-window.innerWidth*currentPage}px`;
 }
 
 sizeCarouselElements();
