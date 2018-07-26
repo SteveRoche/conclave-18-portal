@@ -10,6 +10,10 @@
 	--carousel-nav-color: var(--primary-white);
 	--carousel-nav-margin: 2rem;
 
+	--landing-font: 'Quicksand', sans-serif;
+	--card-heading-font: 'Montserrat', sans-serif;
+	--card-p-font: 'Work Sans', sans-serif;
+
 	--slide-padding: 2rem;
 
 	--card-padding: 2ch;
@@ -49,8 +53,8 @@
 
 #top h1{
 	font-size: var(--heading-font-size);
-	font-family: 'Gaegu', cursive;
-	font-weight: 500;
+	font-family: var(--landing-font);
+	font-weight: 600;
 	position: center;
 	top: 35%;
 	color: var(--primary-white);
@@ -62,8 +66,8 @@
 	top: 25%;
 	margin: auto;
 	position: relative;
-	font-family: 'Gaegu', cursive;
-	font-weight: 100;
+	font-family: var(--landing-font);
+	font-weight: 600;
 }
 
 
@@ -73,8 +77,6 @@
 	font-family: 'Gaegu',cursive;
 	font-weight: 400;
 }
-
-
 
 /* Carousel */
 
@@ -144,6 +146,7 @@
 }
 
 .card p {
+	font-family: var(--card-p-font);
 	font-size: 1rem;
 	margin-bottom: 10%;
 	text-align: justify;
@@ -151,6 +154,8 @@
 }
 
 .card h3 {
+	font-family: var(--card-heading-font);
+	font-weight: 50;
 	font-size: 2rem;
 	position: relative;
 	bottom: 0;
