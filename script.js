@@ -12,6 +12,11 @@ class Carousel {
 		this.prev = document.querySelector('.carousel .carousel-previous');
 		this.next = document.querySelector('.carousel .carousel-next');
 		this.currPage = 0;
+		this.autoScroll = autoScroll || false;
+		this.interval = interval || 6000;
+
+		if (this.autoScroll)
+			setInterval(this.nextHandler.bind(this), this.interval);
 
 		this.resize();
 		this.generateDots();
