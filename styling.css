@@ -1,18 +1,23 @@
 :root {
+	--primary-black: black;
+	--primary-orange: darkorange;
+	--secondary-orange: orange;
+	--primary-white: white;
+
 	--carousel-height: 100vh;
 	--carousel-width: 100%;
-	--carousel-bg-color: orange;
-	--carousel-nav-color: white;
+	--carousel-bg-color: var(--secondary-orange);
+	--carousel-nav-color: var(--primary-white);
 	--carousel-nav-margin: 2rem;
 
 	--slide-padding: 2rem;
 
 	--card-padding: 2ch;
 	--card-border-radius: 1em;
-	--card-title-color: white;
-	--card-p-color: white;
+	--card-title-color: var(--primary-white);
+	--card-p-color: var(--primary-white);
 	--card-p-font-size: 1em;
-	--card-gradient: linear-gradient(transparent, black);
+	--card-gradient: linear-gradient(transparent, var(--primary-black));
 	--card-p-top: 50vh;
 
 	--image-1: url("images/AU.jpg");
@@ -21,7 +26,7 @@
 	--image-4: url("images/GN.jpg");
 	--image-5: url("images/KS.jpg");
 
-	--dots-color: black;
+	--dots-color: var(--primary-black);
 
 	--heading-font-size: 3em;
 }
@@ -39,7 +44,7 @@
 }
 
 #top{
-	background-color:#DC143C;
+	background-color: var(--primary-orange);
 }
 
 #top h1{
@@ -48,7 +53,7 @@
 	font-weight: 500;
 	position: center;
 	top: 35%;
-	color: white;
+	color: var(--primary-white);
 	margin:0 auto;
 	margin-left:-10%;
 }
@@ -119,7 +124,6 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	color: red;
 	font-size: 48px;
 	line-height: 54px;
 	text-align: center;
