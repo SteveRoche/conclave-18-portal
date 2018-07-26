@@ -8,7 +8,7 @@ var carousel = document.querySelector('.carousel'),
 	currentPage = 0,
 	interval = 5000;
 
-function sizeCarouselElements() {
+function sizeCarouselElements()  {
 	var windowWidth = window.innerWidth;
 	carouselList.style.width = `${windowWidth * carouselLength}px`;
 	for (var i = 0; i < carouselLength; i++) carouselItems[i].style.width = `${windowWidth}px`;
@@ -23,22 +23,26 @@ function generateCarouselDots() {
 }
 
 function updateCarouselDots() {
-	var paginationChildren = dots.childNodes;
-	for (var i = 0; i < paginationChildren.length; i++) paginationChildren[i].className = '';
-	paginationChildren[currentPage].className = 'active';
+	var dotsChildren = dots.childNodes;
+	for (var i = 0; i < dotsChildren.length; i++) dotsChildren[i].className = '';
+	dotsChildren[currentPage].className = 'active';
 }
 
 function handleCarouselPreviousClicked() {
-	if (currentPage <= 0) return;
-	currentPage--;
+	if (currentPage <= 0) 
+		currentPage = carouselLength - 1;
+	else
+		currentPage--;
 	animateViewToCurrentPage();
 	updateCarouselDots();
 }
 
 function handleCarouselNextClicked() {
 	console.log("Next");
-	if (currentPage >= carouselLength - 1) return;
-	currentPage++;
+	if (currentPage >= carouselLength - 1) 
+		currentPage = 0;
+	else
+		currentPage++;
 	animateViewToCurrentPage();
 	updateCarouselDots();
 }
