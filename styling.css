@@ -1,7 +1,7 @@
 :root {
 	--carousel-height: 100vh;
 	--carousel-width: 100%;
-	--carousel-bg-color: lightcoral;
+	--carousel-bg-color: orange;
 	--carousel-nav-color: white;
 	--carousel-nav-margin: 2rem;
 
@@ -131,25 +131,25 @@
 	height: 100%;
 	position: relative;
 	border-radius: var(--card-border-radius);
-	
 	padding: var(--card-padding);
 	color: var(--card-p-color);
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 }
 
 .card p {
 	font-size: 1rem;
-	position: absolute;
-	bottom: 10%;
+	margin-bottom: 10%;
 	text-align: justify;
 	padding-right: 1ch;
 }
 
-.card h3{
+.card h3 {
 	font-size: 2rem;
-	position: absolute; 
-	bottom: 80%;
-	text-align: center;
-	margin-left: 1em; 
+	position: relative;
+	bottom: 0;
 }
 
 #card-1 {
@@ -241,9 +241,6 @@
 	.card p{
 		font-size: 0.75em;
 	}
-	.card h3{
-		bottom: 50%;
-	}
 }
 
 @media screen and (min-width: 643px) {
@@ -258,7 +255,6 @@
 		font-size: 7em;
 	}
 	.card h3{
-		bottom: 40%;
 		font-size: 2em;
 	}
 	.card p{
@@ -274,7 +270,6 @@
 		left:0%;
 	}
 	.card h3{
-		bottom: 40%;
 		font-size: 2rem;
 	}
 	.card p{
@@ -297,6 +292,5 @@
 	}
 	.card h3{
 		font-size: 3em;
-		bottom: 35%;
 	}
 }
