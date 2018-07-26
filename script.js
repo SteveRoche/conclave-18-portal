@@ -1,74 +1,68 @@
-var carousel = document.querySelector('.carousel'),
-	carouselList = document.querySelector('.carousel-view ul')
-	carouselItems = document.querySelectorAll('.carousel-view ul li'),
-	carouselLength = carouselItems.length,
-	dots = document.querySelector('.carousel-dots ul'),
-	carouselPrevious = document.querySelector('.carousel .carousel-previous'),
-	carouselNext = document.querySelector('.carousel .carousel-next'),
-	currentPage = 0,
-	interval = 5000;
+document.addEventListener('DOMContentLoaded', () => {
+	var carousel = new Carousel();
+});
 
-function sizeCarouselElements()  {
-	var windowWidth = window.innerWidth;
-	carouselList.style.width = `${windowWidth * carouselLength}px`;
-	for (var i = 0; i < carouselLength; i++) carouselItems[i].style.width = `${windowWidth}px`;
-}
+class Carousel {
+	constructor (autoScroll, interval) {
+		this.el = document.querySelector('.carousel');
+		this.list = document.querySelector('.carousel-view ul');
+		this.items = document.querySelectorAll('.carousel-view ul li');
+		this.length = this.items.length;
+		this.dots = document.querySelector('.carousel-dots ul');
+		this.prev = document.querySelector('.carousel .carousel-previous');
+		this.next = document.querySelector('.carousel .carousel-next');
+		this.currPage = 0;
 
-function generateCarouselDots() {
-	for (var i = 0; i < carouselLength; i++) {
-		var dot = document.createElement('li');
-		dots.appendChild(dot);
+		this.resize();
+		this.generateDots();
+		window.addEventListener('resize', this.resize.bind(this));
+		this.prev.addEventListener('click', this.prevHandler.bind(this));
+		this.next.addEventListener('click', this.nextHandler.bind(this));
 	}
-	dots.firstChild.className = 'active';
+
+	resize() {
+		let windowWidth = window.innerWidth;
+		this.list.style.width = `${windowWidth * this.length}px`;
+		for (let i = 0; i < this.length; i++) this.items[i].style.width = `${windowWidth}px`;
+
+		this.list.className = '';
+		this.list.style.left = `${-window.innerWidth * this.currPage}px`;
+	}
+
+	generateDots() {
+		for (let i=0; i<this.length; i++) {
+			let dot = document.createElement('li');
+			this.dots.appendChild(dot);
+		}
+		this.dots.firstChild.className = 'active';
+	}
+
+	updateDots() {
+		let dotsChildren = this.dots.childNodes;
+		for (let i=0; i<dotsChildren.length; i++) dotsChildren[i].className = '';
+		dotsChildren[this.currPage].className = 'active';
+	}
+
+	prevHandler() {
+		if (this.currPage <= 0)
+			this.currPage = this.length - 1;
+		else
+			this.currPage--;
+		this.animateToCurrPage();
+		this.updateDots();
+	}
+
+	nextHandler() {
+		if (this.currPage >= this.length - 1)
+			this.currPage = 0;
+		else
+			this.currPage++;
+		this.animateToCurrPage();
+		this.updateDots();
+	}
+
+	animateToCurrPage() {
+		this.list.className = 'animate';
+		this.list.style.left = `${-window.innerWidth * this.currPage}px`;
+	}
 }
-
-function updateCarouselDots() {
-	var dotsChildren = dots.childNodes;
-	for (var i = 0; i < dotsChildren.length; i++) dotsChildren[i].className = '';
-	dotsChildren[currentPage].className = 'active';
-}
-
-function handleCarouselPreviousClicked() {
-	if (currentPage <= 0) 
-		currentPage = carouselLength - 1;
-	else
-		currentPage--;
-	animateViewToCurrentPage();
-	updateCarouselDots();
-}
-
-function handleCarouselNextClicked() {
-	console.log("Next");
-	if (currentPage >= carouselLength - 1) 
-		currentPage = 0;
-	else
-		currentPage++;
-	animateViewToCurrentPage();
-	updateCarouselDots();
-}
-
-function setViewToCurrentPage() {
-	carouselList.className = '';
-	carouselList.style.left = `${-window.innerWidth*currentPage}px`;
-}
-
-function animateViewToCurrentPage() {
-	carouselList.className = 'animate';
-	carouselList.style.left = `${-window.innerWidth*currentPage}px`;
-}
-
-sizeCarouselElements();
-generateCarouselDots();
-window.addEventListener('resize', sizeCarouselElements);
-window.addEventListener('resize', setViewToCurrentPage);
-carouselPrevious.addEventListener('click', handleCarouselPreviousClicked);
-carouselNext.addEventListener('click', handleCarouselNextClicked);
-
-// const scroll = setInterval(() => {
-	// if (currentPage >= carouselLength -1)
-		// currentPage = 0;
-	// else
-		// currentPage++;
-	// animateViewToCurrentPage();
-	// updateCarouselPagination();
-// }, interval);
