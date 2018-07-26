@@ -23,6 +23,13 @@ class Carousel {
 		window.addEventListener('resize', this.resize.bind(this));
 		this.prev.addEventListener('click', this.prevHandler.bind(this));
 		this.next.addEventListener('click', this.nextHandler.bind(this));
+		this.dots.childNodes.forEach((dot, i) => {
+			dot.addEventListener('click', () => {
+				this.currPage = i;
+				this.animateToCurrPage();
+				this.updateDots();
+			});
+		});
 	}
 
 	resize() {

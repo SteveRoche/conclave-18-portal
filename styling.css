@@ -210,6 +210,7 @@
 	transition: 0.3s all;
 	display: inline-block;
 	border: 1px solid var(--dots-color);
+	cursor: pointer;
 }
 
 .carousel-dots ul li.active {
